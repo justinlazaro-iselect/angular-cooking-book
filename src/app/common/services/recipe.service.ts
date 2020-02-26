@@ -1,4 +1,4 @@
-import { Recipe } from "../containers/recipes/recipe.model";
+import { Recipe } from "../models/recipe.model";
 import { EventEmitter } from "@angular/core";
 
 export class RecipeService {

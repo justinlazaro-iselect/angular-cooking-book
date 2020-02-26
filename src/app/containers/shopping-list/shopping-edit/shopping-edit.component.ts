@@ -6,7 +6,7 @@ import {
   EventEmitter,
   Output
 } from "@angular/core";
-import { Ingredient } from "src/common/models/ingredient.model";
+import { Ingredient } from "../../../common/models/ingredient.model";
 
 @Component({
   selector: "app-shopping-edit",
