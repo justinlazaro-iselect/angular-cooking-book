@@ -20,6 +20,7 @@ export class RecipeService {
       [new Ingredient("Buns", 2), new Ingredient("Meat", 20)]
     )
   ];
+  recipesChanged = new Subject<Recipe[]>();
 
   constructor(private shoppingListService: ShoppingListService) {}
 
@@ -33,5 +34,16 @@ export class RecipeService {
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
   }
 }
